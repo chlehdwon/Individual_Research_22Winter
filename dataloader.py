@@ -7,6 +7,8 @@ def loader(dataset="SMAP"):
         return _SMAP_loader()
     elif dataset == "UCR":
         return _UCR_loader()
+    elif dataset == "SMD":
+        return _SMD_loader()
 
 
 def _SMAP_loader():
@@ -16,7 +18,7 @@ def _SMAP_loader():
 
     df_train = pd.DataFrame(data=np_train, columns=[f"feature_{i+1}" for i in range(np_train.shape[1])], dtype="float32")
     df_test = pd.DataFrame(data=np_test, columns=[f"feature_{i+1}" for i in range(np_test.shape[1])], dtype="float32")
-    df_test_label = pd.DataFrame(data=np_test_label, columns=["label"], dtype="float32")
+    df_test_label = pd.DataFrame(data=np_test_label, columns=["label"], dtype="int")
 
     return df_train, df_test, df_test_label
 
@@ -24,6 +26,16 @@ def _SMAP_loader():
 def _UCR_loader():
     csv_train = pd.read_csv("./datasets/UCR/train/001_UCR_Anomaly_train.csv", dtype="float32")
     csv_test = pd.read_csv("./datasets/UCR/test/001_UCR_Anomaly_test.csv", dtype="float32")
+    df_train = csv_train.drop(columns=["label", "timestamp"])
+    df_test_label = pd.DataFrame(data=csv_test["label"], dtype="int")
+    df_test = csv_test.drop(columns=["label", "timestamp"])
+
+    return df_train, df_test, df_test_label
+
+
+def _SMD_loader():
+    csv_train = pd.read_csv("./datasets/SMD/train/machine-1-1.csv", dtype="float32")
+    csv_test = pd.read_csv("./datasets/SMD/test/machine-1-1.csv", dtype="float32")
     df_train = csv_train.drop(columns=["label", "timestamp"])
     df_test_label = pd.DataFrame(data=csv_test["label"], dtype="int")
     df_test = csv_test.drop(columns=["label", "timestamp"])

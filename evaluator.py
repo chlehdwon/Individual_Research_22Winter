@@ -1,7 +1,7 @@
 import numpy as np
 
-from tqdm.notebook import tqdm
 from sklearn.metrics import auc
+
 
 def _enumerate_thresholds(rec_errors, n=1000):
     # maximum value of the anomaly score for all time steps in the test data
@@ -14,6 +14,7 @@ def _enumerate_thresholds(rec_errors, n=1000):
 
     return thresholds
 
+
 def _compute_anomaly_scores(x, rec_x, x_val=None, scoring='abs_mean'):
     if scoring == 'abs_mean':
         return np.mean(np.abs(rec_x - x), axis=-1)
@@ -23,6 +24,7 @@ def _compute_anomaly_scores(x, rec_x, x_val=None, scoring='abs_mean'):
         return np.mean(np.square(rec_x - x), axis=-1) # ref. S-RNNs
     elif scoring == 'square_median':
         return np.median(np.square(rec_x - x), axis=-1)
+
 
 def compute_threshold(x_train, x_train_pred, option="abs_mean", label = None):
     if option == "abs_mean":
