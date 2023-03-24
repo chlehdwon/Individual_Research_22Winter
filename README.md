@@ -30,6 +30,11 @@ You can find more information in each notebook files
 
 ## Evaluation
 I applied many methods of computing thresholds and evaluating them. 
+For evaluation, I tried these 2 methods.
+
+* Method1: If any/all included time steps have the anomalies data => abnormal
+
+* Method2: If more than half of included time steps have anomaly data => abnormal
 
 You can find more information in [evaluator.py](https://github.com/chlehdwon/Timeseries_Anomaly_Detection/blob/main/evaluator.py)
 
