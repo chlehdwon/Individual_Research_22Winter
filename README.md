@@ -1,1 +1,38 @@
-# Individual_Research_22Winter
+# Time-Series Anomaly Detection 
+Apply Time-Series Anomlay Detection to the data with different models for 2022 winter individual research.
+
+## Development Environment
+* OS: Linux
+* Python: 3.9
+* Tensorflow: 2.5.2
+* GPU: RTX 3090
+
+## Dataset
+I used [SMAP](https://smap.jpl.nasa.gov/data/), [SMD](https://github.com/NetManAIOps/OmniAnomaly), [UCR](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/) datasets for this study.
+I preprocessed the data for training, and you can find this data [here](https://drive.google.com/drive/folders/1k08NWe6zHolSHR6a5LzLFMHzR6T7BKlb?usp=sharing).
+
+To reproduce the results, make "datasets" directory at the root, and put these 3 folders into the "datasets" folder.
+
+You can find more information in [dataloader.py](https://github.com/chlehdwon/Timeseries_Anomaly_Detection/blob/main/dataloader.py)
+
+## Model
+* CNN based AE
+* LSTM based AE
+* LSTM based VAE
+* LSTM based GAN
+* GRU based AE
+* GRU based VAE
+* GRU based GAN
+
+I implement this 7 simple models by using keras, and apply these models to a each dataset.
+
+## Evaluation
+I applied many methods of computing thresholds and evaluating. 
+
+You can find more information in [evaluator.py](https://github.com/chlehdwon/Timeseries_Anomaly_Detection/blob/main/evaluator.py)
+
+## Result
+
+
+## Future work
+To enhance the accuracy, the complex model and the more data will be needed.
