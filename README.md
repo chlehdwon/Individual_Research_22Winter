@@ -24,7 +24,7 @@ You can find more information in [dataloader.py](https://github.com/chlehdwon/Ti
 * GRU-based VAE
 * GRU-based GAN
 
-I implement these 7 models(simply) by using keras and apply these models to each dataset.
+I implemented these 7 models(simply) by using keras and apply these models to each dataset.
 
 You can find more information in each notebook files
 
