@@ -3,3 +3,4 @@
 Anomaly-Transformer
 datasets
 *.gif
+__pycache__
