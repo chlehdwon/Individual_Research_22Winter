@@ -28,7 +28,7 @@ I implemented these 7 models(simply) by using keras and apply these models to ea
 
 You can find more information in each notebook files
 
-## Evaluation
+## Evaluations
 I applied many methods of computing thresholds and evaluating them. 
 For evaluation, I tried these 2 methods.
 
